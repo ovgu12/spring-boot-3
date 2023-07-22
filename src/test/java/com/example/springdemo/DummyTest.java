@@ -12,6 +12,10 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.example.springdemo.dto.BookDTO;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 @ExtendWith(MockitoExtension.class)
 public class DummyTest {
 
@@ -25,5 +29,11 @@ public class DummyTest {
 	void test1() {
 		when(strs.size()).thenReturn(2);
 		assertEquals(2, strs.size());
+	}
+
+	@Test
+	void testJson() throws JsonProcessingException {
+		var mapper =  new ObjectMapper();
+		assertEquals("{\"title\":\"hello\"}", mapper.writeValueAsString(new BookDTO("hello")), "null");
 	}
 }
