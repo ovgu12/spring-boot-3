@@ -11,4 +11,7 @@ import com.example.springdemo.entity.Book;
 public interface BookMapper {
     @Mapping(target="title", source="book.title")
     BookDTO toDTO(Book book);
+
+    @Mapping(target="title", source="bookDTO.title")
+    Book toEntity(BookDTO bookDTO);
 }

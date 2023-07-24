@@ -34,6 +34,6 @@ public class DummyTest {
 	@Test
 	void testJson() throws JsonProcessingException {
 		var mapper =  new ObjectMapper();
-		assertEquals("{\"title\":\"hello\"}", mapper.writeValueAsString(new BookDTO("hello")), "null");
+		assertEquals("{\"title\":\"hello\"}", mapper.writeValueAsString(new BookDTO(1L,"hello")), "null");
 	}
 }

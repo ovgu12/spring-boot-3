@@ -22,4 +22,16 @@ public class BookService {
     public List<BookDTO> list() {
         return bookRespository.findAll().stream().map(bookMapper::toDTO).collect(Collectors.toList());
     }
+
+    public void create(BookDTO bookDTO) {
+        bookRespository.save(bookMapper.toEntity(bookDTO));
+    }
+
+    public BookDTO getById(Long bookId) {
+        return bookMapper.toDTO(bookRespository.getById(bookId));
+    }
+
+    public void deleteById(Long bookId) {
+        bookRespository.deleteById(bookId);
+    }
 }
