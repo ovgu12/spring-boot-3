@@ -15,10 +15,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Book {
-    
+
     @Id
     @SequenceGenerator(name = "book_id_generator", sequenceName = "book_sequence", allocationSize = 1)
-	@GeneratedValue(generator = "book_id_generator")
+    @GeneratedValue(generator = "book_id_generator")
     private Long id;
 
     private String title;

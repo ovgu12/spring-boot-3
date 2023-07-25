@@ -28,7 +28,7 @@ public class BookService {
     }
 
     public BookDTO getById(Long bookId) {
-        return bookMapper.toDTO(bookRespository.getById(bookId));
+        return bookMapper.toDTO(bookRespository.getReferenceById(bookId));
     }
 
     public void deleteById(Long bookId) {
