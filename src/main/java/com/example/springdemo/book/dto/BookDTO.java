@@ -1,4 +1,4 @@
-package com.example.springdemo.dto;
+package com.example.springdemo.book.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

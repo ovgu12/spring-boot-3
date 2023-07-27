@@ -1,4 +1,4 @@
-package com.example.springdemo.service;
+package com.example.springdemo.book.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.springdemo.dto.BookDTO;
-import com.example.springdemo.mapper.BookMapper;
-import com.example.springdemo.repository.BookRespository;
+import com.example.springdemo.book.dto.BookDTO;
+import com.example.springdemo.book.mapper.BookMapper;
+import com.example.springdemo.book.repository.BookRespository;
 
 @Service
 public class BookService {

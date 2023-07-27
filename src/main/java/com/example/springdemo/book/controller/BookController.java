@@ -1,4 +1,4 @@
-package com.example.springdemo;
+package com.example.springdemo.book.controller;
 
 import java.util.List;
 
@@ -11,22 +11,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.springdemo.dto.BookDTO;
-import com.example.springdemo.kafka.KafkaProducer;
-import com.example.springdemo.service.BookService;
+import com.example.springdemo.book.dto.BookDTO;
+import com.example.springdemo.book.service.BookService;
 
 @RestController
 public class BookController {
 
     @Autowired
     private BookService bookService;
-
-    @Autowired
-    private KafkaProducer kafkaProducer;
-
+;
     @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<BookDTO> getBooks() {
-        kafkaProducer.sendMessage("List Books");
         return bookService.list();
     }
 
