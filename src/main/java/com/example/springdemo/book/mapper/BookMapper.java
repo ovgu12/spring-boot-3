@@ -9,9 +9,9 @@ import com.example.springdemo.book.entity.Book;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface BookMapper {
-    @Mapping(target="title", source="book.title")
+    @Mapping(target="authorName", source="book.author.name")
     BookDTO toDTO(Book book);
 
-    @Mapping(target="title", source="bookDTO.title")
+    @Mapping(target="author", ignore=true)
     Book toEntity(BookDTO bookDTO);
 }

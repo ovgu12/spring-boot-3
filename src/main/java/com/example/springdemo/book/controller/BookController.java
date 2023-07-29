@@ -40,4 +40,9 @@ public class BookController {
         bookService.deleteById(Long.valueOf(bookId));
     }
 
+    @DeleteMapping(value= "/author/{authorId}")
+    public void deleteByAuthor(@PathVariable("authorId") String authorId) {
+        bookService.deleteByAuthorId(Long.valueOf(authorId));
+    }
+
 }
