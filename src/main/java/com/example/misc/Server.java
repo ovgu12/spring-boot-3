@@ -6,7 +6,7 @@ import java.net.Socket;
 public class Server {
 
     public static void main(String[] args) {
-        try (var server = new ServerSocket(9999);) {
+        try (var server = new ServerSocket(9999)) {
             Socket client = server.accept();
             Thread.sleep(2000);
             var in = client.getInputStream();

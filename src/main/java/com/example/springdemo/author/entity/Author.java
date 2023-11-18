@@ -15,13 +15,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 public class Author {
     @Id
-    @SequenceGenerator(name = "author_id_generator", sequenceName = "author_sequence", allocationSize = 1)
     @GeneratedValue(generator = "author_id_generator")
+    @SequenceGenerator(name = "author_id_generator", sequenceName = "author_sequence", allocationSize = 1)
     private Long id;
 
     private String name;
