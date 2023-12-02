@@ -9,8 +9,8 @@ CREATE TABLE Author  (
     name varchar(100) not null
 );
 
-create sequence book_sequence start with 1 increment by 1;
-create sequence author_sequence start with 1 increment by 1;
+CREATE SEQUENCE book_sequence start WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE author_sequence start WITH 1 INCREMENT BY 1;
 
 ALTER TABLE Book ADD FOREIGN KEY (author_id) REFERENCES Author(id);
 
