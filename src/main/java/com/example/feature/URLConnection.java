@@ -8,7 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 @Slf4j
-public class HttpConnection {
+public class URLConnection {
 
     public static void main(String[] args) {
         try {
