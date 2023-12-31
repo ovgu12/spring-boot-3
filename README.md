@@ -1,12 +1,7 @@
 # spring-boot-3
 
-Project to experiment with spring boot v3
+Spring boot v3 lab
 
-## Docker
+## Kafka docker 
 
-Start kafka docker
-
-```bash
-docker compose up
-```
-
+Refer https://github.com/ovgu12/devops for example of kafka container.

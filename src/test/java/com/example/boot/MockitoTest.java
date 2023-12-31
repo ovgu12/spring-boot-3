@@ -9,6 +9,9 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -39,4 +42,27 @@ public class MockitoTest {
         assertEquals("{\"id\":1,\"title\":\"hello\",\"authorName\":\"Max\"}",
                 mapper.writeValueAsString(new BookDTO(1L, "hello", "Max")), "null");
     }
+
+    @Test
+    void testDummy() throws Exception {
+        try (var ins = getClass().getClassLoader().getResourceAsStream("dummy.txt")) {
+            if (ins != null) {
+                Arrays.stream(new String(ins.readAllBytes())
+                                .split(System.lineSeparator()))
+                        .map(String::toUpperCase)
+                        .forEach(System.out::println);
+            }
+        }
+    }
+
+    @Test
+    void testIo() throws Exception {
+        var url = getClass().getClassLoader().getResource("dummy.txt");
+        if (url != null) {
+            try (var lines = Files.lines(Path.of(url.getPath()))) {
+                lines.skip(1).forEach(System.out::println);
+            }
+        }
+    }
+
 }

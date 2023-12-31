@@ -12,6 +12,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/cloud")
@@ -29,16 +31,17 @@ public class FeigClientController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<TypicodePostDTO> index() {
-        log.info("Typicode {}", typicodeProperties);
-
         kafkaProducer.sendMessage("Hello from Typicode");
 
-        final var restTemplate = new RestTemplate();
-
-        var res = Optional
-                .of(restTemplate.getForEntity(typicodeProperties.getHost() + "/posts", TypicodePostDTO[].class));
-
-        res.map(HttpEntity::getBody).ifPresent(body -> System.out.println(body.length));
+        Optional
+                .of(new RestTemplate().getForEntity(typicodeProperties.getHost() + "/posts", TypicodePostDTO[].class))
+                .map(HttpEntity::getBody)
+                .ifPresent(body ->
+                        System.out.println(
+                                Stream.of(body)
+                                        .map(TypicodePostDTO::getId)
+                                        .collect(Collectors.toList())
+                        ));
 
         return feigClientService.getPosts();
     }

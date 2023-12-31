@@ -13,8 +13,13 @@ public class WebConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests.anyRequest().permitAll()).csrf(AbstractHttpConfigurer::disable);
-        return httpSecurity.build();
+        return httpSecurity
+                .authorizeHttpRequests((authorizeHttpRequests) ->
+                        authorizeHttpRequests
+                                .anyRequest()
+                                .permitAll()
+                )
+                .csrf(AbstractHttpConfigurer::disable).build();
     }
 
 }

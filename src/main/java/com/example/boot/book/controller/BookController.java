@@ -20,18 +20,18 @@ public class BookController {
     }
 
     @GetMapping(value = "/{bookId}")
-    public BookDTO getBook(@PathVariable("bookId") String bookId) {
-        return bookService.getById(Long.valueOf(bookId));
+    public BookDTO getBook(@PathVariable("bookId") Long bookId) {
+        return bookService.getById(bookId);
     }
 
     @PostMapping
-    public void createBook(@RequestBody BookDTO bookDTO, @RequestParam String authorId) {
-        bookService.create(bookDTO, Long.valueOf(authorId));
+    public void createBook(@RequestBody BookDTO bookDTO, @RequestParam Long authorId) {
+        bookService.create(bookDTO, authorId);
     }
 
     @DeleteMapping(value = "/{bookId}")
-    public void deleteBook(@PathVariable("bookId") String bookId) {
-        bookService.deleteById(Long.valueOf(bookId));
+    public void deleteBook(@PathVariable("bookId") Long bookId) {
+        bookService.deleteById(bookId);
     }
 
 }

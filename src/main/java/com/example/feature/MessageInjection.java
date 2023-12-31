@@ -7,7 +7,7 @@ public class MessageInjection {
     public static void main(String[] args) {
         var ctx = new AnnotationConfigApplicationContext(MessageConfiguration.class);
 
-        var helloWorldBean = ctx.getBean(MessageBean.class);
+        var helloWorldBean = ctx.getBean("a", Message.class);
         helloWorldBean.hi();
 
         var helloWorldComponent = ctx.getBean(MessageComponent.class);

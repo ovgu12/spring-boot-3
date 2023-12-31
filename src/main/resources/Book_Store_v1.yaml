@@ -1,0 +1,27 @@
+openapi: 3.1.0
+info:
+  title: Book store with boot 3
+  description: |
+    Example of using spring boot 3
+  version: 1.0.0
+paths:
+  /books:
+    get:
+      summary: List of books
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        authorName:
+          type: string

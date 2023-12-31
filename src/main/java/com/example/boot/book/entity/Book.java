@@ -1,6 +1,7 @@
 package com.example.boot.book.entity;
 
 import com.example.boot.author.entity.Author;
+import com.example.boot.common.TrimConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class Book {
     @GeneratedValue(generator = "book_id_generator")
     private Long id;
 
+    @Convert(converter = TrimConverter.class)
     private String title;
 
     @ManyToOne

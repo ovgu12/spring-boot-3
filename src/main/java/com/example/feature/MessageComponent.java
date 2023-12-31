@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Lazy
-public class MessageComponent {
+public class MessageComponent implements Message {
 
     @Value("World")
     private final String myText;

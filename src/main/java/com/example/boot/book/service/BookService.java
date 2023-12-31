@@ -6,6 +6,8 @@ import com.example.boot.book.mapper.BookMapper;
 import com.example.boot.book.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,6 +28,7 @@ public class BookService {
         return bookRepository.findAll().stream().map(bookMapper::toDTO).collect(Collectors.toList());
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     public void create(BookDTO bookDTO, Long authorId) {
         var book = bookMapper.toEntity(bookDTO);
         var author = authorRepository.getReferenceById(authorId);

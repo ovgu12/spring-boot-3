@@ -16,3 +16,5 @@ ALTER TABLE Book ADD FOREIGN KEY (author_id) REFERENCES Author(id);
 
 INSERT INTO Author(id, name) VALUES (1, 'Victor Hugo');
 INSERT INTO Author(id, name) VALUES (2, 'Hemmingway');
+
+INSERT INTO Book(id, title, author_id) VALUES (1, 'Sailing with the sun', 1);
