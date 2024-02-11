@@ -1,7 +1,13 @@
 # spring-boot-3
 
-Spring boot v3 lab
+Engineering examples of spring boot v3 
 
-## Kafka docker 
+##  Features
 
-Refer https://github.com/ovgu12/devops for example of kafka container.
+- Open API
+- Lombok
+- Mapstruct
+- Flyway
+- Kafka
+- Junit
+- Mockito
