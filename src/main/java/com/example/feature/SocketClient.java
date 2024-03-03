@@ -15,7 +15,6 @@ public class SocketClient {
         } catch (Exception e) {
             log.debug("SocketClient error", e);
         }
-
     }
 
 }

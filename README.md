@@ -4,7 +4,6 @@ Engineering examples of spring boot v3
 
 ##  Features
 
-- Open API
 - Lombok
 - Mapstruct
 - Flyway

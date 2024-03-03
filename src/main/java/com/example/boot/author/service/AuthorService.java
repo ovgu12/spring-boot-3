@@ -23,7 +23,10 @@ public class AuthorService {
     private AuthorMapper authorMapper;
 
     public List<AuthorDTO> list() {
-        return authorRepository.findAll().stream().map(authorMapper::toDto).collect(Collectors.toList());
+        return authorRepository.findAll()
+                .stream()
+                .map(authorMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     public void create(AuthorDTO authorDTO) {

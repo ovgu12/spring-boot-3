@@ -12,7 +12,7 @@ public class SocketServer {
              var client = server.accept();
              var in = client.getInputStream()
         ) {
-            System.out.println("Incoming " + new String(in.readAllBytes()));
+            log.info("Incoming " + new String(in.readAllBytes()));
         } catch (Exception e) {
             log.debug("SocketServer error", e);
         }

@@ -25,7 +25,7 @@ public class Author {
     @Convert(converter = TrimConverter.class)
     private String name;
 
-    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Book> books;
 
 }

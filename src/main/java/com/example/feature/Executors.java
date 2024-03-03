@@ -6,10 +6,10 @@ import java.util.Arrays;
 import java.util.concurrent.*;
 
 @Slf4j
-public class Async {
+public class Executors {
 
     public static void main(String[] args) {
-        ExecutorService exs = Executors.newFixedThreadPool(1);
+        ExecutorService exs = java.util.concurrent.Executors.newFixedThreadPool(1);
         final Runnable r1 = () -> {
             log.info("r1");
         };

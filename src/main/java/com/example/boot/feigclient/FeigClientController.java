@@ -30,20 +30,25 @@ public class FeigClientController {
     private FeigClientService feigClientService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<TypicodePostDTO> index() {
-        kafkaProducer.sendMessage("Hello from Typicode");
-
+    @RequestMapping("/feig")
+    public List<TypicodePostDTO> feig() {
         Optional
                 .of(new RestTemplate().getForEntity(typicodeProperties.getHost() + "/posts", TypicodePostDTO[].class))
                 .map(HttpEntity::getBody)
                 .ifPresent(body ->
-                        System.out.println(
+                        log.info("{}",
                                 Stream.of(body)
                                         .map(TypicodePostDTO::getId)
                                         .collect(Collectors.toList())
                         ));
 
         return feigClientService.getPosts();
+    }
+
+    @GetMapping()
+    @RequestMapping("/kafka")
+    public void sendMessage() {
+        kafkaProducer.sendMessage("Kafka says hello");
     }
 
 }
