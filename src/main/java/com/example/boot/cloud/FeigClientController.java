@@ -1,4 +1,4 @@
-package com.example.boot.feigclient;
+package com.example.boot.cloud;
 
 import com.example.boot.kafka.KafkaProducer;
 import lombok.extern.slf4j.Slf4j;

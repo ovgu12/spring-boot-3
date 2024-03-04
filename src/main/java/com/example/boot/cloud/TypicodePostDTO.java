@@ -1,4 +1,4 @@
-package com.example.boot.feigclient;
+package com.example.boot.cloud;
 
 import lombok.Data;
 

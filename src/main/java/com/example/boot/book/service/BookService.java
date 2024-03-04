@@ -29,7 +29,7 @@ public class BookService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public void create(BookDTO bookDTO, Long authorId) {
+    public void createByAuthorId(Long authorId, BookDTO bookDTO) {
         var book = bookMapper.toEntity(bookDTO);
         var author = authorRepository.getReferenceById(authorId);
         var books = author.getBooks();

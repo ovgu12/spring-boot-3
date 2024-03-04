@@ -13,8 +13,8 @@ public interface AuthorMapper {
     @Mapping(target = "name")
     Author toEntity(AuthorDTO authorDTO);
 
-    @Mapping(target = "name")
     @Mapping(target = "id")
+    @Mapping(target = "name")
     AuthorDTO toDto(Author author);
 
 }

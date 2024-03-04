@@ -24,11 +24,6 @@ public class BookController {
         return bookService.getById(bookId);
     }
 
-    @PostMapping
-    public void createBook(@RequestBody BookDTO bookDTO, @RequestParam Long authorId) {
-        bookService.create(bookDTO, authorId);
-    }
-
     @DeleteMapping(value = "/{bookId}")
     public void deleteBook(@PathVariable("bookId") Long bookId) {
         bookService.deleteById(bookId);
