@@ -1,6 +1,6 @@
 package com.example.boot;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +16,7 @@ class BootApplicationTests {
 
     @Test
     void contextLoads() {
-        Assertions.assertNotNull(ctx);
+        assertNotNull(ctx);
     }
 
 }

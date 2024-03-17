@@ -31,7 +31,7 @@ class AuthorControllerTest {
     @Test
     @DisplayName("Authors list")
     void notNull() throws Exception {
-        this.mockMvc.perform(get("/authors"))
+        mockMvc.perform(get("/authors"))
                 .andDo(print()).andExpect(status().isOk());
     }
 
