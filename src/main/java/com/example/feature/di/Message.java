@@ -1,4 +1,4 @@
-package com.example.feature;
+package com.example.feature.di;
 
 public interface Message {
 

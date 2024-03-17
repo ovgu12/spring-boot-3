@@ -1,8 +1,8 @@
-package com.example.feature;
+package com.example.feature.di;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class MessageInjection {
+public class MessageDi {
 
     public static void main(String[] args) {
         var ctx = new AnnotationConfigApplicationContext(MessageConfiguration.class);

@@ -1,4 +1,4 @@
-package com.example.feature;
+package com.example.feature.net;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -11,9 +11,10 @@ public class SocketClient {
         try (var client = new Socket("localhost", 9999);
              var out = client.getOutputStream()
         ) {
+            // Send to server
             out.write("abc".getBytes());
         } catch (Exception e) {
-            log.debug("SocketClient error", e);
+            log.debug("Error", e);
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.feature;
+package com.example.feature.net;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,9 +12,10 @@ public class SocketServer {
              var client = server.accept();
              var in = client.getInputStream()
         ) {
+            // Receive from client
             log.info("Incoming " + new String(in.readAllBytes()));
         } catch (Exception e) {
-            log.debug("SocketServer error", e);
+            log.debug("Error", e);
         }
     }
 
