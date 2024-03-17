@@ -1,9 +1,9 @@
 # spring-boot-3
 
-Engineering examples of spring boot v3 
+Best practices of spring boot v3 
 
 ##  Features
-
+- OpenApi
 - Lombok
 - Mapstruct
 - Flyway

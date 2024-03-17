@@ -6,10 +6,10 @@ import java.util.Arrays;
 import java.util.concurrent.*;
 
 @Slf4j
-public class Executors {
+public class Concurrency {
 
     public static void main(String[] args) {
-        ExecutorService exs = java.util.concurrent.Executors.newFixedThreadPool(1);
+        ExecutorService exs = Executors.newFixedThreadPool(2);
         final Runnable r1 = () -> {
             log.info("r1");
         };
@@ -24,6 +24,10 @@ public class Executors {
 
         final var fut = CompletableFuture.supplyAsync(() -> "Hello")
                 .thenApply(s -> s.concat(" World"))
+                .exceptionally((error) -> {
+                    log.error("Error occurred", error);
+                    throw new RuntimeException(error);
+                })
                 .thenAccept(log::info)
                 .thenRun(() -> log.info("Bye"));
 

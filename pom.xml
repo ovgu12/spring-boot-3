@@ -119,6 +119,16 @@
 			<version>${com.fasterxml.jackson.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.openapitools</groupId>
+			<artifactId>jackson-databind-nullable</artifactId>
+			<version>0.2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.8.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -188,6 +198,31 @@
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.openapitools</groupId>
+				<artifactId>openapi-generator-maven-plugin</artifactId>
+				<version>7.2.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.basedir}/src/main/resources/api_v1.yaml</inputSpec>
+							<generatorName>spring</generatorName>
+							<apiPackage>com.example.boot.cloud</apiPackage>
+							<modelPackage>com.example.boot.cloud</modelPackage>
+							<configOptions>
+								<sourceFolder>${project.basedir}/src/main/java</sourceFolder>
+								<useSpringController>false</useSpringController>
+								<useSwaggerUI>false</useSwaggerUI>
+								<useSpringBoot3>true</useSpringBoot3>
+								<testOutput>false</testOutput>
+							</configOptions>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -228,5 +263,4 @@
 			</releases>
 		</pluginRepository>
 	</pluginRepositories>
-
 </project>

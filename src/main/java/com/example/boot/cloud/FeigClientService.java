@@ -11,11 +11,11 @@ public class FeigClientService {
     @Autowired
     private FeigClient feigClient;
 
-    public List<TypicodePostDTO> getPosts() {
+    public List<TypicodePost> getPosts() {
         return feigClient.getPosts();
     }
 
-    public TypicodePostDTO getPostById(Long postId) {
+    public TypicodePost getPostById(Long postId) {
         return feigClient.getPostById(postId);
     }
 

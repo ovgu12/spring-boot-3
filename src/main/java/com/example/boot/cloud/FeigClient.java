@@ -12,9 +12,9 @@ import java.util.List;
 public interface FeigClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/posts")
-    List<TypicodePostDTO> getPosts();
+    List<TypicodePost> getPosts();
 
     @RequestMapping(method = RequestMethod.GET, value = "/posts/{postId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    TypicodePostDTO getPostById(@PathVariable("postId") Long postId);
+    TypicodePost getPostById(@PathVariable("postId") Long postId);
 
 }

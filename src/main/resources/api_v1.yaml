@@ -1,0 +1,33 @@
+openapi: 3.1.0
+info:
+  title: OpenApi made it simple
+  description: |
+    Example of using OpenApi with spring boot 3
+  version: 1.0.0
+paths:
+  /cloud/feig:
+    get:
+      summary: List of posts
+      description: Fetch list of posts
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TypicodePost'
+components:
+  schemas:
+    TypicodePost:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: string
+        title:
+          type: string
+        body:
+          type: string

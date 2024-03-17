@@ -31,14 +31,14 @@ public class FeigClientController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @RequestMapping("/feig")
-    public List<TypicodePostDTO> feig() {
+    public List<TypicodePost> feig() {
         Optional
-                .of(new RestTemplate().getForEntity(typicodeProperties.getHost() + "/posts", TypicodePostDTO[].class))
+                .of(new RestTemplate().getForEntity(typicodeProperties.getHost() + "/posts", TypicodePost[].class))
                 .map(HttpEntity::getBody)
                 .ifPresent(body ->
                         log.info("{}",
                                 Stream.of(body)
-                                        .map(TypicodePostDTO::getId)
+                                        .map(TypicodePost::getId)
                                         .collect(Collectors.toList())
                         ));
 
