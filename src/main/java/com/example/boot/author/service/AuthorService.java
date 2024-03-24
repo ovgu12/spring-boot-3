@@ -3,9 +3,7 @@ package com.example.boot.author.service;
 import com.example.boot.author.dto.AuthorDTO;
 import com.example.boot.author.mapper.AuthorMapper;
 import com.example.boot.author.repository.AuthorRepository;
-import com.example.boot.book.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
