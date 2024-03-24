@@ -2,6 +2,7 @@ package com.example.boot.book.controller;
 
 import com.example.boot.book.dto.BookDTO;
 import com.example.boot.book.service.BookService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,10 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/books")
+@RequiredArgsConstructor
 public class BookController {
 
-    @Autowired
-    private BookService bookService;
+    private final BookService bookService;
 
     @GetMapping
     public List<BookDTO> getBooks() {

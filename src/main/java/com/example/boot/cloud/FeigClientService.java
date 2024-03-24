@@ -1,15 +1,16 @@
 package com.example.boot.cloud;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class FeigClientService {
 
-    @Autowired
-    private FeigClient feigClient;
+    private final FeigClient feigClient;
 
     public List<TypicodePost> getPosts() {
         return feigClient.getPosts();

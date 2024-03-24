@@ -1,6 +1,7 @@
 package com.example.boot.config;
 
 import com.example.boot.book.repository.BookRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -12,10 +13,10 @@ import java.util.stream.Collectors;
 @Slf4j
 @Configuration
 @EnableScheduling
+@RequiredArgsConstructor
 public class SchedulerConfig {
 
-    @Autowired
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
     @Scheduled(fixedRate = 5000)
     public void debugRepository() {

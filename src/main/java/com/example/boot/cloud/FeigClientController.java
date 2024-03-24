@@ -1,6 +1,7 @@
 package com.example.boot.cloud;
 
 import com.example.boot.kafka.KafkaProducer;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -15,16 +16,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/cloud")
 @Slf4j
+@RequiredArgsConstructor
 public class FeigClientController {
 
-    @Autowired
-    private KafkaProducer kafkaProducer;
+    private final KafkaProducer kafkaProducer;
 
-    @Autowired
-    private TypicodeProperties typicodeProperties;
+    private final TypicodeProperties typicodeProperties;
 
-    @Autowired
-    private FeigClientService feigClientService;
+    private final FeigClientService feigClientService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @RequestMapping("/feig")

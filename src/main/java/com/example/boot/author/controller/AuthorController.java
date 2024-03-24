@@ -4,6 +4,7 @@ import com.example.boot.author.dto.AuthorDTO;
 import com.example.boot.author.service.AuthorService;
 import com.example.boot.book.dto.BookDTO;
 import com.example.boot.book.service.BookService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,13 +12,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/authors")
+@RequiredArgsConstructor
 public class AuthorController {
 
-    @Autowired
-    private AuthorService authorService;
+    private final AuthorService authorService;
 
-    @Autowired
-    private BookService bookService;
+    private final BookService bookService;
 
     @GetMapping
     public List<AuthorDTO> list() {

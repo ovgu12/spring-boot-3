@@ -4,6 +4,7 @@ import com.example.boot.author.repository.AuthorRepository;
 import com.example.boot.book.dto.BookDTO;
 import com.example.boot.book.mapper.BookMapper;
 import com.example.boot.book.repository.BookRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -13,16 +14,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class BookService {
 
-    @Autowired
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
-    @Autowired
-    private AuthorRepository authorRepository;
+    private final AuthorRepository authorRepository;
 
-    @Autowired
-    private BookMapper bookMapper;
+    private final BookMapper bookMapper;
 
     public List<BookDTO> list() {
         return bookRepository.findAll().stream().map(bookMapper::toDTO).collect(Collectors.toList());

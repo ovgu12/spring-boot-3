@@ -4,6 +4,7 @@ import com.example.boot.author.dto.AuthorDTO;
 import com.example.boot.author.mapper.AuthorMapper;
 import com.example.boot.author.repository.AuthorRepository;
 import com.example.boot.book.repository.BookRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,16 +12,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class AuthorService {
 
-    @Autowired
-    private AuthorRepository authorRepository;
+    private final AuthorRepository authorRepository;
 
-    @Autowired
-    private BookRepository bookRepository;
-
-    @Autowired
-    private AuthorMapper authorMapper;
+    private final AuthorMapper authorMapper;
 
     public List<AuthorDTO> list() {
         return authorRepository.findAll()
