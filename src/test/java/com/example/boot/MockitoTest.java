@@ -9,7 +9,6 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -39,18 +38,6 @@ public class MockitoTest {
         var mapper = new ObjectMapper();
         assertEquals("{\"id\":1,\"title\":\"hello\"}",
                 mapper.writeValueAsString(new BookDTO(1L, "hello")), "null");
-    }
-
-    @Test
-    void testDummy() throws Exception {
-        try (var ins = getClass().getClassLoader().getResourceAsStream("dummy.txt")) {
-            if (ins != null) {
-                Arrays.stream(new String(ins.readAllBytes())
-                                .split(System.lineSeparator()))
-                        .map(String::toUpperCase)
-                        .forEach(System.out::println);
-            }
-        }
     }
 
 }

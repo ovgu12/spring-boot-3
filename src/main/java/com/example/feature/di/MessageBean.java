@@ -10,8 +10,6 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
 @Slf4j
 public class MessageBean implements Message, BeanNameAware, BeanClassLoaderAware, ApplicationContextAware, InitializingBean, DisposableBean {
@@ -52,7 +50,7 @@ public class MessageBean implements Message, BeanNameAware, BeanClassLoaderAware
     }
 
 
-   @PreDestroy
+    @PreDestroy
     public void preDestroy() {
         log.info("7 @PreDestroy");
     }
