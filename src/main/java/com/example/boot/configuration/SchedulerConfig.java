@@ -1,4 +1,4 @@
-package com.example.boot.config;
+package com.example.boot.configuration;
 
 import com.example.boot.book.repository.BookRepository;
 import lombok.RequiredArgsConstructor;

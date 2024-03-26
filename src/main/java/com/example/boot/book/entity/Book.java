@@ -3,16 +3,14 @@ package com.example.boot.book.entity;
 import com.example.boot.author.entity.Author;
 import com.example.boot.common.TrimConverter;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Book {
 
     @Id
@@ -20,6 +18,8 @@ public class Book {
     @GeneratedValue(generator = "book_id_generator")
     private Long id;
 
+    @NotNull
+    @Size(min = 3, max = 50)
     @Convert(converter = TrimConverter.class)
     private String title;
 

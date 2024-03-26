@@ -1,6 +1,5 @@
 package com.example.boot;
 
-import com.example.boot.book.dto.BookDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -17,18 +16,18 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class MockitoTest {
+public class MockitoTests {
 
     @Mock
-    List<String> strs;
+    List<String> tests;
 
     @Spy
     Map<String, String> mappings;
 
     @Test
     void testMock() {
-        when(strs.size()).thenReturn(2);
-        assertEquals(2, strs.size());
+        when(tests.size()).thenReturn(2);
+        assertEquals(2, tests.size());
         mappings.put("test", "me");
         verify(mappings).put("test", "me");
     }
@@ -37,7 +36,10 @@ public class MockitoTest {
     void testJson() throws JsonProcessingException {
         var mapper = new ObjectMapper();
         assertEquals("{\"id\":1,\"title\":\"hello\"}",
-                mapper.writeValueAsString(new BookDTO(1L, "hello")), "null");
+                mapper.writeValueAsString(new HelloJson(1L, "hello")), "null");
+    }
+
+    private record HelloJson(Long id, String title) {
     }
 
 }

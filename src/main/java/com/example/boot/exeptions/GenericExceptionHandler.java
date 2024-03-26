@@ -1,4 +1,4 @@
-package com.example.boot.exeption;
+package com.example.boot.exeptions;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ConstraintViolationException;

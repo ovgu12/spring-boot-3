@@ -24,7 +24,7 @@ class AuthorRepositoryTest {
     @Test
     public void contextLoads() {
         var author = new Author();
-        author.setName("Hello");
+        author.setName("Spring");
         authorRepository.save(author);
         assertNotNull(authorRepository);
         assertEquals(1, authorRepository.findAll().size());
